@@ -1,0 +1,32 @@
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: frontend/build/index.html
+  upload: frontend/build/index.html
+
+- url: /assets
+  static_dir: frontend/build/assets
+
+- url: /src
+  static_dir: frontend/build/src
+
+- url: /vendor
+  static_dir: frontend/build/vendor
+
+   
+- url: /templates-common.js
+  static_files: frontend/build/templates-common.js
+  upload: frontend/build/templates-common.js
+
+
+- url: /templates-app.js 
+  static_files: frontend/build/templates-app.js 
+  upload: frontend/build/templates-app.js 
+  
+- url: /.*
+  script: main.app
+

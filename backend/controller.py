@@ -23,6 +23,10 @@ def gql_json_parser(query_obj):
         count = count + 1
     return result
 
+@app.route('/shorten', methods = ['POST'])
+def shorten():
+    return request.data
+
 @app.route('/todo', methods = ['GET'])
 def get_tasks():
     # for i in range(10):

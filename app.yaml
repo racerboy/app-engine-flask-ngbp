@@ -25,7 +25,7 @@ handlers:
 
 - url: /templates-app.js 
   static_files: frontend/build/templates-app.js 
-  upload: frontend/build/templates-app.js 
+  upload: frontend/build/templates-app.js   
   
 - url: /.*
   script: main.app

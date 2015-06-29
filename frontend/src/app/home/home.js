@@ -14,7 +14,7 @@
  */
 angular.module( 'ngBoilerplate.home', [
   'ui.router',
-  'plusOne'
+  'ngResource'
 ])
 
 /**
@@ -35,11 +35,25 @@ angular.module( 'ngBoilerplate.home', [
   });
 })
 
+
+ .service('Shorten',function ($resource) {
+    return $resource('/shorten');
+ })
 /**
- * And of course we define a controller for our route.
+ * And of course [we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope ) {
-})
+.controller('HomeCtrl',['$scope','Shorten', function ( $scope, Shorten ) {
+  $scope.shortened = [];
+  $scope.url = 'so cool';
+  $scope.getShort = function() {
+    var shorty = new Shorten();
+    shorty.url = $scope.url;
+    $scope.shortened.push(shorty);
+    $scope.url = '';
+    console.log(shorty.$save());
+    
+  };
+
+}])
 
 ;
-
